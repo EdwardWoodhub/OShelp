@@ -1,10 +1,11 @@
-Error:
-
+# Error:
+```
 chown: invalid user: ‘lost+found:lost+found’
 
 E: Sub-process /usr/bin/dpkg returned an error code (1)
+```
 
-Solution:
+# Solution:
 
 ```
 # 备份原脚本
@@ -40,27 +41,21 @@ done
 
 
 ```
+# 重新配置 parrot-core
 sudo dpkg --configure parrot-core
 ```
 
 ```
+# 再继续配置其他包。会弹出一个对话框，要求选择 GRUB 安装的目标磁盘。请务必勾选你系统所在的硬盘（通常是 /dev/sda 或 /dev/nvme0n1），用空格选中，回车确认。
 sudo dpkg --configure -a
 ```
 
-```
-sudo dpkg --configure grub-pc
-```
 
 ```
-sudo dpkg --configure -a
-```
-
-```
-# 清理无用的依赖包
-sudo apt autoremove
-
 # 再次运行系统升级
 sudo parrot-upgrade
 # 或
 sudo apt update && sudo apt full-upgrade
+# 重启系统
+sudo reboot
 ```
