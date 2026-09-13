@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=一键锁屏
+Name[en]=LockScreen
+Comment=立即锁定屏幕
+Exec=xdg-screensaver lock
+Icon=system-lock-screen
+Terminal=false
+Categories=System;Security;
